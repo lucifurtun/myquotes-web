@@ -7,6 +7,7 @@ import {QuoteComponent} from './quote/quote.component';
 import {LoginComponent} from './user/login/login.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { SignupComponent } from './user/signup/signup.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { SignupComponent } from './user/signup/signup.component';
     SignupComponent
   ],
   imports: [
-    BrowserModule, HttpModule, AppRoutingModule
+    BrowserModule, HttpModule, FormsModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,8 @@
 <div>
-  <form (ngSubmit)="login()" class="login" method="POST" action="/login/">
+  <form (submit)="login($event)" class="login" method="POST" action="/login/">
     <div class="form-group">
-      <input type="email" name="login" autofocus="autofocus" id="id_login" placeholder="E-mail" class="form-control">
+      <input type="email" name="login" autofocus="autofocus" [(ngModel)]="email"
+             id="id_login" placeholder="E-mail" class="form-control">
     </div>
     <div class="form-group">
       <input type="password" name="password" class="form-control" placeholder="Password" id="id_password">

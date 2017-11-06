@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login() {
+  login($event) {
+    $event.preventDefault();
+    console.log(this.form);
     this.http.post('https://myquotes.io/api/login/', JSON.stringify(this.form.value))
       .toPromise()
       .then(response => console.log(response.json()))
