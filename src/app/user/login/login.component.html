@@ -1,5 +1,5 @@
 <div>
-  <form #form="ngForm" (submit)="login($event, form)" class="login" method="POST">
+  <form #form="ngForm" (submit)="onSubmit($event, form)" class="login" method="POST">
     <div class="form-group">
       <input type="email" name="email" autofocus="autofocus" ngModel
              id="id_login" placeholder="E-mail" class="form-control">
@@ -7,8 +7,6 @@
     <div class="form-group">
       <input type="password" name="password" class="form-control" placeholder="Password" id="id_password" ngModel>
     </div>
-
-    <input type="hidden" name="next" value="/">
 
     <button class="btn btn-lg btn-success btn-block" type="submit">Sign In</button>
   </form>

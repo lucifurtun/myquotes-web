@@ -1,33 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Component} from '@angular/core';
+import {LoginService} from "./login.service";
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [LoginService]
 })
-export class LoginComponent implements OnInit {
-  constructor(private http: HttpClient) {
+export class LoginComponent {
+  constructor(public loginService: LoginService) {
   }
 
-  ngOnInit() {
-  }
-
-  async login($event, form) {
+  onSubmit($event, form) {
     $event.preventDefault();
 
     let body = JSON.stringify(form.value);
-    let options = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
-
-    try {
-      let response = await this.http.post('https://myquotes.io/api/token/new/', body, options).toPromise();
-      console.log(response);
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
-
-  private handleError() {
-
+    this.loginService.login(body)
   }
 }
