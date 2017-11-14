@@ -1,3 +1,3 @@
 export class Login {
-  token: string
+  token: string;
 }

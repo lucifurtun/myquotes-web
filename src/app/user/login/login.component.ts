@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoginService} from "./login.service";
+import {LoginService} from './login.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -14,6 +14,6 @@ export class LoginComponent {
     $event.preventDefault();
 
     let body = JSON.stringify(form.value);
-    this.loginService.login(body)
+    this.loginService.login(body);
   }
 }

@@ -1,15 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {apiPoints} from "../environments/environment";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class ApiService {
-  options: object
+  options: object;
 
   constructor(private http: HttpClient, router: Router) {
-    let headers = {'Content-Type': 'application/json'}
-    let token = localStorage.getItem('token');
+    const headers = {'Content-Type': 'application/json'};
+    const token = localStorage.getItem('token');
     if (token) {
       headers['Authorization'] = `JWT ${token}`;
     }
@@ -19,20 +18,16 @@ export class ApiService {
 
   async post(endpoint: string, data: object) {
     try {
-      let response = await this.http.post(endpoint, data, this.options).toPromise() as any;
-      return response
-    }
-    catch (error) {
+      return await this.http.post(endpoint, data, this.options).toPromise() as any;
+    } catch (error) {
       console.error(error);
     }
   }
 
   async get(endpoint: string, query: object = null) {
     try {
-      let response = await this.http.get(endpoint, this.options).toPromise() as any;
-      return response;
-    }
-    catch (error) {
+      return await this.http.get(endpoint, this.options).toPromise() as any;
+    } catch (error) {
       console.error(error);
     }
   }
