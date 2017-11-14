@@ -1,21 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Quote} from './quote';
-import {Http} from '@angular/http';
+import {ApiService} from "app/api.service";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {apiPoints} from "../../environments/environment";
 
 @Injectable()
-export class QuoteService {
-  constructor(private http: Http) {
+export class QuoteService extends ApiService {
+  constructor(http: HttpClient, private router: Router) {
+    super(http, router);
   }
 
   getQuotes(): Promise<Quote[]> {
-    return this.http.get('https://myquotes.io/api/quotes/?page=1')
-      .toPromise()
-      .then(response => response.json().results as Quote[])
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
+    return this.get(apiPoints.quotes).then(response => response.results as Quote[])
   }
 }
