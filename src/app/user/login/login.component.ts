@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   templateUrl: './login.component.html',
@@ -15,14 +15,13 @@ export class LoginComponent implements OnInit {
   async login($event, form) {
     $event.preventDefault();
 
-    let body = JSON.stringify(form.value);
-    let options = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    const body = JSON.stringify(form.value);
+    const options = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
     try {
-      let response = await this.http.post('https://myquotes.io/api/token/new/', body, options).toPromise();
+      const response = await this.http.post('https://myquotes.io/api/token/new/', body, options).toPromise();
       console.log(response);
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   }
