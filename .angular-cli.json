@@ -19,9 +19,18 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles/bootstrap/dist/css/bootstrap.min.css",
+        "styles/sb_admin/dist/css/sb-admin-2.css",
+        "styles/metisMenu/dist/metisMenu.min.css",
+        "styles/font-awesome/css/font-awesome.min.css",
+        "styles/less/global.scss",
+        "styles/less/quote.scss",
+        "styles/less/user.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "styles/metisMenu/dist/metisMenu.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -54,7 +63,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

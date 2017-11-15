@@ -9,6 +9,8 @@ import {AppRoutingModule} from './app-routing.module';
 import { SignupComponent } from './user/signup/signup.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
     QuoteComponent,
     LoginComponent,
     SignupComponent,
+    HeaderComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule, HttpModule, HttpClientModule, FormsModule, AppRoutingModule
